@@ -1,0 +1,38 @@
+services:
+  web:
+    build: ./web
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - dev-network
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - dev-network
+
+  dev:
+    build: ./web
+    volumes:
+      - .:/app
+    command: sleep infinity
+    networks:
+      - dev-network
+    depends_on:
+      - web
+
+volumes:
+  db-data:
+
+networks:
+  dev-network:
