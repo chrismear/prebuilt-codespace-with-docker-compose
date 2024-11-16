@@ -18,7 +18,7 @@ In the [Dev Container configuration](.devcontainer/devcontainer.json), key thing
   "service": "dev",
 ```
 
-* Setting the `workspaceFolder` property to the same path used in the [`Dockerfile`](web/Dockerfile#L3) and in [`docker-compose.yml`]() as the root of the project:
+* Setting the `workspaceFolder` property to the same path used in the [`Dockerfile`](web/Dockerfile#L3) and in [`docker-compose.yml`](docker-compose.yml#L27) as the root of the project:
 
 ```json
   "workspaceFolder": "/app",
